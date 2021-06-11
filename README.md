@@ -60,34 +60,37 @@ Build a checkout system with these items:
  - write it in `Golang` or `Node` with a `CI script` that `runs tests` and `produces a binary`
 ## Example Scenarios
 - checkoutCost( [ `MacBook Pro` , `Raspberry Pi B` ] ) = `$5399.99`
+![](2021-06-11-13-59-45.png)
 
-$$\begin{matrix}
+<!-- $$\begin{matrix}
  \sum(\mathrm{cost}(items)) & = & \$5399.99 + \$30 & (1a) \\
  & = & \$5429.99 & \\  \\
 \mathrm{discounts}(items) & = & \$30  & (1b) \\ \\
  \sum(\mathrm{afterDiscounts}(items)) & = & \$5429.99 - \$30 & (1c) \\
  & = & \$5399.99 & \\  \\
-\end{matrix}$$
+\end{matrix}$$ -->
 
 - checkoutCost( [ `Google Home` , `Google Home` , `Google Home` ] ) = `$99.98`
-
-$$\begin{matrix}
+![](2021-06-11-14-00-09.png)
+<!-- $$\begin{matrix}
  \sum(\mathrm{cost}(items)) & = & \$49.99+ \$49.99+ \$49.99 & (2a) \\
  & = & \$149.97 & \\  \\
 \mathrm{discounts}(items) & = & \$49.99  & (2b) \\ \\
  \sum(\mathrm{afterDiscounts}(items)) & = & \$149.97 - \$49.99 & (2c) \\
  & = & \$99.98 & \\  \\
-\end{matrix}$$
+\end{matrix}$$ -->
 
    - checkoutCost( [ `Alexa Speaker` , `Alexa Speaker` , `Alexa Speaker` ] ) = `$295.65`
-$$\begin{matrix}
+
+![](2021-06-11-14-00-23.png)
+<!-- $$\begin{matrix}
  \sum(\mathrm{cost}(items)) & = & \$109.5 +\$109.5 +\$109.5 & (3a) \\
  & = & \$328.5 & \\  \\
 \mathrm{discounts}(items) & = & \frac{10\% \times \$328.5}{100\%}    & (3b) \\ 
    & = & \$32.85   \\ \\
  \sum(\mathrm{afterDiscounts}(items)) & = & \$328.5 - \$32.85 & (3c) \\
  & = & \$295.65 & \\  \\
-\end{matrix}$$
+\end{matrix}$$ -->
 
 
 ### Assessment criteria
