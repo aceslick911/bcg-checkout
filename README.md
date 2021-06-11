@@ -1,5 +1,7 @@
 # BE Candidate Take Home Test
 
+[![codecov](https://codecov.io/gh/aceslick911/bcg-checkout/branch/main/graph/badge.svg?token=BR8YT7AM47)](https://codecov.io/gh/aceslick911/bcg-checkout)
+
 ## Requirements Analysis
 > Have you shopped online? Let’s imagine that you need to build the checkout backend service that will support different promotions with the given inventory.
 Build a checkout system with these items:
