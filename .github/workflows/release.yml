@@ -48,3 +48,4 @@ jobs:
         tags: |
           docker.pkg.github.com/${{ github.repository }}/bcg-checkout:${{ github.sha }}
           docker.pkg.github.com/${{ github.repository }}/bcg-checkout:${{ needs.tag.outputs.new_tag}}
+          docker.pkg.github.com/${{ github.repository }}/bcg-checkout:latest
