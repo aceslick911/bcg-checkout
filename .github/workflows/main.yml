@@ -42,8 +42,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Run Unit tests.
-        env:
-          working-directory: ./src/
+        working-directory: ./src/
         run: pwd && find . && make test-coverage
       
       - name: Upload Coverage report to CodeCov
@@ -66,6 +65,5 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build
-        env:
-          working-directory: ./src/
+        working-directory: ./src/
         run: pwd && find . && make build
