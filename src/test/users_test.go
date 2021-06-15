@@ -2,11 +2,12 @@ package test
 
 import (
 	"fmt"
+	"testing"
+
 	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/db"
 	models "github.com/aceslick911/bcg-checkout/internal/pkg/models/users"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
-	"testing"
 )
 
 var userTest models.User
@@ -15,6 +16,7 @@ func Setup() {
 	config.Setup("./config.yml")
 	db.SetupDB()
 	db.GetDB().Exec("DELETE FROM users")
+	db.GetDB().Exec("DELETE FROM products")
 }
 
 func TestAddUser(t *testing.T) {
