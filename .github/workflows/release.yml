@@ -1,8 +1,7 @@
 name: Release
 on:
-  create:
-    tags:
-      - v*  
+  release:
+    types: [published]
 jobs:
 #   release:
 #     name: Release on GitHub
