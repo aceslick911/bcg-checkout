@@ -57,6 +57,12 @@ func Setup() *gin.Engine {
 	app.POST("/api/tasks", controllers.CreateTask)
 	app.PUT("/api/tasks/:id", controllers.UpdateTask)
 	app.DELETE("/api/tasks/:id", controllers.DeleteTask)
+	// ================== Product Routes
+	app.GET("/api/products/:id", controllers.GetProductById)
+	app.GET("/api/products", controllers.GetProducts)
+	app.POST("/api/products", controllers.CreateProduct)
+	app.PUT("/api/products/:id", controllers.UpdateProduct)
+	app.DELETE("/api/products/:id", controllers.DeleteProduct)
 
 	return app
 }

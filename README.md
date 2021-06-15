@@ -169,7 +169,7 @@ You can also use the CI pre-built docker image on github.
 Generate a personal access token from github if you havent already:
 https://github.com/settings/tokens
 
-Pick a image to pull:
+Pick a image to pull: eg. docker.pkg.github.com/aceslick911/bcg-checkout/bcg-checkout:v1.1.0-f4376e1
 https://github.com/aceslick911?tab=packages&repo_name=bcg-checkout
 
 ```sh
