@@ -45,7 +45,7 @@ run:
 	go run cmd/api/main.go
 
 test:
-	@go test -short ${PKG_LIST}
+	go test -short ${PKG_LIST}
 	go test -v ./test/...
 
 

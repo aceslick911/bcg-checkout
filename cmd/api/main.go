@@ -13,7 +13,7 @@ import (
 // @contact.email angeloperera@gmail.com
 
 // @license.name MIT
-// @license.url https://github.com/antonioalfa22/go-rest-template/blob/master/LICENSE
+// @license.url http://github.com/aceslick911
 
 // @BasePath /
 

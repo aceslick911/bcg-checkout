@@ -2,10 +2,10 @@ package test
 
 import (
 	"fmt"
-	"github.com/antonioalfa22/go-rest-template/internal/pkg/config"
-	"github.com/antonioalfa22/go-rest-template/internal/pkg/db"
-	models "github.com/antonioalfa22/go-rest-template/internal/pkg/models/users"
-	"github.com/antonioalfa22/go-rest-template/internal/pkg/persistence"
+	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
+	"github.com/aceslick911/bcg-checkout/internal/pkg/db"
+	models "github.com/aceslick911/bcg-checkout/internal/pkg/models/users"
+	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
 	"testing"
 )
 
@@ -20,9 +20,9 @@ func Setup() {
 func TestAddUser(t *testing.T) {
 	Setup()
 	user := models.User{
-		Firstname: "Antonio",
-		Lastname:  "Paya",
-		Username:  "antonio",
+		Firstname: "Angelo",
+		Lastname:  "Perera",
+		Username:  "aceslick911",
 		Hash:      "hash",
 		Role:      models.UserRole{RoleName: "user"},
 	}
