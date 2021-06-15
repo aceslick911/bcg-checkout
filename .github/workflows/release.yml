@@ -16,6 +16,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+        DEFAULT_BUMP: 'patch'
+        RELEASE_BRANCHES: 'main'
+        INITIAL_VERSION: '1.0.5'
       id: get_tag_name
     outputs:
       new_tag: ${{ steps.get_tag_name.outputs.new_tag }}
