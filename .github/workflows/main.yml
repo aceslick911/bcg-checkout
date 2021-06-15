@@ -9,8 +9,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-env:
-  working-directory: ./src
   
 jobs:  
   # lint:
@@ -34,6 +32,8 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    env:
+      working-directory: src/
     steps:
       - name: Set up Go
         uses: actions/setup-go@v1
@@ -56,6 +56,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest 
     needs: [test] #lint, 
+    env:
+      working-directory: src/
     steps:
       - name: Set up Go
         uses: actions/setup-go@v1

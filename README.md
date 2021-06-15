@@ -197,34 +197,34 @@ Alternatively, you can run these make commands on a system setup to compile gola
 
 **Build**
 
-```shell script
+```shell 
 make build
 ```
 
 **Lint**
 
-```shell script
+```shell 
 make lint
 ```
 
 **Run**
 
-```shell script
+```shell 
 make run 
 ```
 
 **Test**
 
-```shell script
+```shell 
 make test
 ```
-```shell script
+```shell 
 make test-coverage
 ```
 
 **Generate Docs**
 
-```shell script
+```shell 
 make docs
 ```
 
