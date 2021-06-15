@@ -14,7 +14,7 @@ FROM golang:1.15.3-alpine AS build
   COPY src/Makefile .
 
   # Print copied files
-  RUN pwd && find .
+  #RUN pwd && find .
 
   RUN make dep
 
@@ -22,19 +22,19 @@ FROM golang:1.15.3-alpine AS build
   COPY src/ .
 
   # Print copied files
-  RUN pwd && find .
+  #RUN pwd && find .
 
   # Build
   RUN make build
 
   # Print copied files
-  RUN pwd && find .
+  #RUN pwd && find .
 
 # ==== docs - Documentation build
 FROM build as docs
 
   # Print copied files
-  RUN pwd && find .
+  #RUN pwd && find .
 
   WORKDIR /src
   RUN make docs
@@ -51,7 +51,7 @@ FROM alpine:3.12 as app
   WORKDIR /app
 
   # Print copied files
-  RUN pwd && find .
+  #RUN pwd && find .
 
   COPY --from=build /src/bin/restapi /app/restapi
   COPY --from=build /src/data /app/data
