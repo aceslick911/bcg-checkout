@@ -43,8 +43,8 @@ jobs:
 
       - name: Run Unit tests.
         env:
-          working-directory: src/
-        run: make test-coverage
+          working-directory: ./src/
+        run: pwd && find . && make test-coverage
       
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v1.0.0
@@ -67,5 +67,5 @@ jobs:
 
       - name: Build
         env:
-          working-directory: src/
-        run: make build
+          working-directory: ./src/
+        run: pwd && find . && make build
