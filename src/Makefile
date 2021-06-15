@@ -33,9 +33,9 @@ run:
 	go run cmd/api/main.go
 
 test:
-	go test -short ${PKG_LIST}
+	# go test -short ${PKG_LIST}
 	go test -v ./test/...
 
-test-coverage: ## Run tests with coverage
+test-coverage: test ## Run tests with coverage
 	@go test -short -coverprofile cover.out -covermode=atomic ${PKG_LIST} 
 	@cat cover.out >> coverage.txt
