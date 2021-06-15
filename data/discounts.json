@@ -1,0 +1,23 @@
+[
+  {
+    "condition_qty": 1,
+    "condition_item": "43N23P",
+    "discount_type": "FREE_ITEM_QTY",
+    "discount_item": "234234",
+    "discount_value": 1
+  },
+  {
+    "condition_qty": 3,
+    "condition_item": "120P90",
+    "discount_type": "FREE_ITEM_QTY",
+    "discount_item": "120P90",
+    "discount_value": 1
+  },
+  {
+    "condition_qty": 3,
+    "condition_item": "A304SD",
+    "discount_type": "ITEM_DISCOUNT_PERCENTAGE",
+    "discount_item": "A304SD",
+    "discount_value": 10
+  }
+]
