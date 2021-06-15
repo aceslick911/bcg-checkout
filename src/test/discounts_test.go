@@ -15,26 +15,26 @@ func TestAddDiscount(t *testing.T) {
 	Setup()
 	discountList := [...]models.Discount{
 		{
-			"condition_qty": 1,
-			"condition_item": "43N23P",
-			"discount_type": "FREE_ITEM_QTY",
-			"discount_item": "234234",
-			"discount_value": 1,
+			Condition_qty:  1,
+			Condition_item: "43N23P",
+			Discount_type:  "FREE_ITEM_QTY",
+			Discount_item:  "234234",
+			Discount_value: 1.0,
 		},
 		{
-			"condition_qty": 3,
-			"condition_item": "120P90",
-			"discount_type": "FREE_ITEM_QTY",
-			"discount_item": "120P90",
-			"discount_value": 1,
+			Condition_qty:  3,
+			Condition_item: "120P90",
+			Discount_type:  "FREE_ITEM_QTY",
+			Discount_item:  "120P90",
+			Discount_value: 1.0,
 		},
 		{
-			"condition_qty": 3,
-			"condition_item": "A304SD",
-			"discount_type": "ITEM_DISCOUNT_PERCENTAGE",
-			"discount_item": "A304SD",
-			"discount_value": 10,
-		}
+			Condition_qty:  3,
+			Condition_item: "A304SD",
+			Discount_type:  "ITEM_DISCOUNT_PERCENTAGE",
+			Discount_item:  "A304SD",
+			Discount_value: 10.0,
+		},
 	}
 
 	discount := discountList[0]

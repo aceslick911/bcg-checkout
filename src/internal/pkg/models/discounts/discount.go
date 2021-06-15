@@ -8,11 +8,11 @@ import (
 
 type Discount struct {
 	models.Model
-	condition_qty  uint64  `gorm:"column:inventory_qty;not null;" json:"inventory_qty" form:"inventory_qty"`
-	condition_item string  `gorm:"column:sku;not null;" json:"sku" form:"text"`
-	discount_type  string  `gorm:"column:sku;not null;" json:"sku" form:"text"`
-	discount_item  string  `gorm:"column:sku;not null;" json:"sku" form:"text"`
-	discount_value float64 `gorm:"column:price;not null;" json:"price" form:"price"`
+	Condition_qty  uint64  `gorm:"column:condition_qty;not null;" json:"condition_qty" form:"condition_qty"`
+	Condition_item string  `gorm:"column:Condition_item;not null;" json:"Condition_items" form:"Condition_items"`
+	Discount_type  string  `gorm:"column:Discount_type;not null;" json:"Discount_type" form:"Discount_type"`
+	Discount_item  string  `gorm:"column:Discount_item;not null;" json:"Discount_item" form:"Discount_item"`
+	Discount_value float64 `gorm:"column:Discount_value;not null;" json:"Discount_value" form:"Discount_value"`
 	// UserID uint64     `gorm:"column:user_id;unique_index:user_id;not null;" json:"user_id" form:"user_id"`
 	// User   users.User `json:"user"`
 }
