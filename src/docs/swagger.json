@@ -15,6 +15,85 @@
     },
     "basePath": "/",
     "paths": {
+        "/api/discounts": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "Get Discounts",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves discounts based on query",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Discountname",
+                        "name": "discountname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Firstname",
+                        "name": "firstname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Lastname",
+                        "name": "lastname",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/discounts.Discount"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/discounts/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "get Discount by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves discount based on given ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Discount ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/discounts.Discount"
+                        }
+                    }
+                }
+            }
+        },
         "/api/products": {
             "get": {
                 "security": [
@@ -254,6 +333,35 @@
         }
     },
     "definitions": {
+        "discounts.Discount": {
+            "type": "object",
+            "properties": {
+                "Condition_items": {
+                    "type": "string"
+                },
+                "Discount_item": {
+                    "type": "string"
+                },
+                "Discount_type": {
+                    "type": "string"
+                },
+                "Discount_value": {
+                    "type": "number"
+                },
+                "condition_qty": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
         "products.Product": {
             "type": "object",
             "properties": {
