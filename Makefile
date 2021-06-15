@@ -1,7 +1,7 @@
-# PROJECT_NAME := "bcg-checkout"
-# PKG := "github.com/aceslick911/$(PROJECT_NAME)"
-# PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
-# GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
+PROJECT_NAME := "bcg-checkout"
+PKG := "github.com/aceslick911/$(PROJECT_NAME)"
+PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
+GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
  
 # .PHONY: all dep lint vet test test-coverage build clean
  
@@ -16,8 +16,8 @@ lint: ## Lint Golang files
 vet: ## Run go vet
 	@go vet ${PKG_LIST}
 
-test: ## Run unittests
-	@go test -short ${PKG_LIST}
+# test: ## Run unittests
+# 	@go test -short ${PKG_LIST}
 
 test-coverage: ## Run tests with coverage
 	@go test -short -coverprofile cover.out -covermode=atomic ${PKG_LIST} 
@@ -45,6 +45,7 @@ run:
 	go run cmd/api/main.go
 
 test:
+	@go test -short ${PKG_LIST}
 	go test -v ./test/...
 
 
@@ -52,8 +53,8 @@ docker:
 # DOCKER_BUILDKIT=0
 	 docker build . 
 
-docs-docker: docker
-	docker build --output type=local,from=/src/docs/,dest=out .
+docs-docker:
+	docker build --output type=local,dest=docs .
 
 build-docker: docker
 	docker build . -t bcg-api --target API_SERVER

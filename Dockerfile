@@ -24,9 +24,6 @@ FROM build_base as docs
 RUN go get -u github.com/swaggo/swag/cmd/swag
 RUN swag init --dir cmd/api --parseDependency --output docs
 
-FROM scratch AS export-stage
-COPY --from=docs /src/docs /
-
 
 # Start fresh from a smaller image
 FROM alpine:3.12 as API_SERVER
@@ -44,3 +41,7 @@ EXPOSE 3000
 
 # Run the binary program produced by `go install`
 ENTRYPOINT ./restapi
+
+
+FROM scratch AS export-stage
+COPY --from=docs /src/docs /
