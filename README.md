@@ -164,6 +164,27 @@ This can be structured as:
 
 You can run all these commands with Docker in the root folder.
 
+You can also use the CI pre-built docker image on github.
+
+Generate a personal access token from github if you havent already:
+https://github.com/settings/tokens
+
+Pick a image to pull:
+https://github.com/aceslick911?tab=packages&repo_name=bcg-checkout
+
+```sh
+
+docker login docker.pkg.github.com --username <githubusername> <TOKEN YOU GENERATED>
+docker pull <image selected>
+docker run -p 3000:3000 <image selected>
+
+```
+
+Then visit:
+http://localhost:3000/docs/index.html
+
+... OR
+
 # Run in `./`
 
 1. **Build**
@@ -227,6 +248,8 @@ make test-coverage
 ```shell 
 make docs
 ```
+
+http://localhost:3000/docs/index.html
 
 _______
 
