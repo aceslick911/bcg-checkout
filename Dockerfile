@@ -38,7 +38,10 @@ FROM build as docs
 
   WORKDIR /src
   RUN make docs
-  COPY /src/docs /docs
+  
+# ==== docs-output - Output target
+  FROM scratch as docs-output
+    COPY --from=docs /src/docs /docs
 
 
 # ==== app - Build app into alpine
@@ -56,8 +59,8 @@ FROM alpine:3.12 as app
 
   RUN chmod +x restapi
 
-  # This container exposes port 8080 to the outside world
-  EXPOSE 8080
+  # This container exposes port 3000 to the outside world
+  EXPOSE 3000
 
   # Run the binary program produced by `go install`
   ENTRYPOINT ./restapi

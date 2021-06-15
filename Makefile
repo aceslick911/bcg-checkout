@@ -4,17 +4,18 @@
  
 all: build test docs run
 
-build:
-	DOCKER_BUILDKIT=0 docker build --target build -t bcg-api . 
+build: # DOCKER_BUILDKIT=0 
+	docker build --target build -t bcg-api . 
 
-test: build
-	DOCKER_BUILDKIT=0 docker run --rm bcg-api make test-coverage
+test: build # DOCKER_BUILDKIT=0 
+	docker run --rm bcg-api make test-coverage
 
-docs:
-	DOCKER_BUILDKIT=0 docker build --target docs --output type=local,dest=src/OUTTT -t bcg-docs .
+docs: # REQUIRES BUILDKIT
+	docker build --target docs-output --output type=local,dest=src/docs -t bcg-docs .
 
 
-app: build
-	DOCKER_BUILDKIT=0 docker build --target app -t bcg-api . 
-run: app
-	DOCKER_BUILDKIT=0 docker run --rm -p 3000:3000 bcg-app
+app: build # DOCKER_BUILDKIT=0 
+	docker build --target app -t bcg-app . 
+
+run: app # DOCKER_BUILDKIT=0 
+docker run --rm -p 3000:3000 bcg-app

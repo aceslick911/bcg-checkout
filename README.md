@@ -162,37 +162,71 @@ This can be structured as:
 
 # How to use
 
-## 1. Run with Docker
+You can run all these commands with Docker in the root folder.
+
+# Run in `./`
 
 1. **Build**
 
 ```shell script
 make build
-docker build . -t api-rest
 ```
 
 2. **Run**
 
 ```shell script
-docker run -p 3000:3000 api-rest
+make run 
 ```
 
-3. **Test**
+**Test**
 
 ```shell script
-go test -v ./test/...
+make test
+```
+
+**Generate Docs**
+
+```shell script
+make docs
+```
+
+Run and go to **http://localhost:3000/docs/index.html**
+
+Alternatively, you can run these make commands on a system setup to compile golang
+# Run in `./src/`
+
+**Build**
+
+```shell script
+make build
+```
+
+**Lint**
+
+```shell script
+make lint
+```
+
+**Run**
+
+```shell script
+make run 
+```
+
+**Test**
+
+```shell script
+make test
+```
+```shell script
+make test-coverage
+```
+
+**Generate Docs**
+
+```shell script
+make docs
 ```
 
 _______
 
-## 2. Generate Docs
-
-```shell script
-# Get swag
-go get -u github.com/swaggo/swag/cmd/swag
-
-# Generate docs
-swag init --dir cmd/api --parseDependency --output docs
-```
-
-Run and go to **http://localhost:3000/docs/index.html**
