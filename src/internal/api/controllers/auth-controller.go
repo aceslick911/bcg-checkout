@@ -2,12 +2,14 @@ package controllers
 
 import (
 	"errors"
-	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
-	"github.com/aceslick911/bcg-checkout/pkg/crypto"
-	"github.com/aceslick911/bcg-checkout/pkg/http-err"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+	"net/url"
+
+	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
+	"github.com/aceslick911/bcg-checkout/pkg/crypto"
+	http_err "github.com/aceslick911/bcg-checkout/pkg/http-err"
+	"github.com/gin-gonic/gin"
 )
 
 type LoginInput struct {
@@ -30,4 +32,9 @@ func Login(c *gin.Context) {
 		token, _ := crypto.CreateToken(user.Username)
 		c.JSON(http.StatusOK, token)
 	}
+}
+func GatewayRedirect(c *gin.Context) {
+
+	location := url.URL{Path: "/docs/index.html"}
+	c.Redirect(http.StatusFound, location.RequestURI())
 }

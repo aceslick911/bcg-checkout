@@ -2,6 +2,8 @@ package db
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models/tasks"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models/users"
@@ -9,7 +11,6 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
-	"time"
 )
 
 var (
@@ -25,6 +26,7 @@ type Database struct {
 func SetupDB() {
 	var db = DB
 
+	// Loaded from config.yml
 	configuration := config.GetConfig()
 
 	driver := configuration.Database.Driver

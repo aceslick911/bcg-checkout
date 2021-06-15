@@ -2,13 +2,14 @@ package router
 
 import (
 	"fmt"
+	"io"
+	"os"
+
 	"github.com/aceslick911/bcg-checkout/internal/api/controllers"
 	"github.com/aceslick911/bcg-checkout/internal/api/middlewares"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
-	"github.com/swaggo/gin-swagger"
-	"io"
-	"os"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func Setup() *gin.Engine {
@@ -37,6 +38,7 @@ func Setup() *gin.Engine {
 	app.Use(middlewares.CORS())
 	app.NoRoute(middlewares.NoRouteHandler())
 
+	app.GET("/", controllers.GatewayRedirect) // Redirect to docs
 	// Routes
 	// ================== Login Routes
 	app.POST("/api/login", controllers.Login)

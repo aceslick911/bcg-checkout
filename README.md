@@ -181,7 +181,7 @@ docker run -p 3000:3000 <image selected>
 ```
 
 Then visit:
-http://localhost:3000/docs/index.html
+http://localhost:3000/docs/index.html (or /)
 
 ... OR
 
@@ -211,7 +211,7 @@ make test
 make docs
 ```
 
-Run and go to **http://localhost:3000/docs/index.html**
+Run and go to **http://localhost:3000/docs/index.html (or /)**
 
 Alternatively, you can run these make commands on a system setup to compile golang
 # Run in `./src/`
@@ -249,7 +249,7 @@ make test-coverage
 make docs
 ```
 
-http://localhost:3000/docs/index.html
+http://localhost:3000/docs/index.html (or /)
 
 _______
 
