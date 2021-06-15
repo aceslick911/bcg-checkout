@@ -97,9 +97,102 @@ Build a checkout system with these items:
 
 ### Assessment criteria
 
+## Design
+
+### Discount Engine
+
+Rules:
+  - Each sale of a `MacBook Pro` comes with a `free` `Raspberry Pi B`
+  - Buy `3` `Google Homes` for the price of `2`
+  - Buying more than `3` `Alexa Speakers` will have a `10% discount` on all Alexa speakers
+
+This can be structured as:
+```javascript
+[
+  {
+    "condition": {
+      "qty": 1,
+      "item": "43N23P"
+    },
+    "discount": {
+      "type": "FREE_ITEM_QTY",
+      "details": {
+        "item": "234234",
+        "value": 1
+      }
+    }
+  },
+  {
+    "condition": {
+      "qty": 3,
+      "item": "120P90"
+    },
+    "discount": {
+      "type": "FREE_ITEM_QTY",
+      "details": {
+        "item": "120P90",
+        "value": 1
+      }
+    }
+  },
+  {
+    "condition": {
+      "qty": 3,
+      "item": "A304SD"
+    },
+    "discount": {
+      "type": "ITEM_DISCOUNT_PERCENTAGE",
+      "details": {
+        "item": "A304SD",
+        "value": 10
+      }
+    }
+  }
+]
+```
+
+
 **Assumptions**
  - Demonstrate capability in Javascript(NodeJS) and GoLang
    - Create a REST API backend service
    - Instantiate the sample dataset for IOT products for sale
  - Reduce the problem to individual, trivially solvable problems
  - 
+
+
+# How to use
+
+## 1. Run with Docker
+
+1. **Build**
+
+```shell script
+make build
+docker build . -t api-rest
+```
+
+2. **Run**
+
+```shell script
+docker run -p 3000:3000 api-rest
+```
+
+3. **Test**
+
+```shell script
+go test -v ./test/...
+```
+
+_______
+
+## 2. Generate Docs
+
+```shell script
+# Get swag
+go get -u github.com/swaggo/swag/cmd/swag
+
+# Generate docs
+swag init --dir cmd/api --parseDependency --output docs
+```
+
+Run and go to **http://localhost:3000/docs/index.html**

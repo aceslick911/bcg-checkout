@@ -21,3 +21,4 @@ coverage.txt
 .idea
 
 data/sqlitebiter
+bin
