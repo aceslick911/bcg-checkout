@@ -63,6 +63,12 @@ func Setup() *gin.Engine {
 	app.POST("/api/products", controllers.CreateProduct)
 	app.PUT("/api/products/:id", controllers.UpdateProduct)
 	app.DELETE("/api/products/:id", controllers.DeleteProduct)
+	// ================== Discount Routes
+	app.GET("/api/discounts/:id", controllers.GetDiscountById)
+	app.GET("/api/discounts", controllers.GetDiscounts)
+	app.POST("/api/discounts", controllers.CreateDiscount)
+	app.PUT("/api/discounts/:id", controllers.UpdateDiscount)
+	app.DELETE("/api/discounts/:id", controllers.DeleteDiscount)
 
 	return app
 }
