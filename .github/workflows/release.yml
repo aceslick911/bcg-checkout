@@ -40,7 +40,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}  
     - name: Echo
-      run: echo ${{ steps.tag.outputs.result }}
+      run: echo ${{ needs.tag.outputs.new_tag}}
     - name: Build container image
       uses: docker/build-push-action@v2
       with:
