@@ -3,7 +3,7 @@ PKG := "github.com/aceslick911/$(PROJECT_NAME)"
 PKG_LIST := $(shell go list ${PKG}/... | grep -v /vendor/)
 GO_FILES := $(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
  
-# .PHONY: all dep lint vet test test-coverage build clean
+.PHONY: all dep lint vet test test-coverage build clean
  
 all: docs-docker run-docker
 
