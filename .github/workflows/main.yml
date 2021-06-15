@@ -8,9 +8,13 @@ on:
     tags: []
   pull_request:
   workflow_dispatch:
+
   
-jobs:
+jobs:  
   lint:
+    env:
+      working-directory: ./src
+
     name: Lint
     runs-on: ubuntu-latest
     steps:

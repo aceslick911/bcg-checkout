@@ -1,47 +1,63 @@
-FROM golang:1.15.3-alpine AS build_base
+# ==== build - Build main artifacts
+FROM golang:1.15.3-alpine AS build
 
-ENV CGO_ENABLED=1
-ENV GO111MODULE=on
-RUN apk add --no-cache git  git gcc g++
+  ENV CGO_ENABLED=1
+  ENV GO111MODULE=on
+  RUN apk add --no-cache git git gcc g++ make
 
-# Set the Current Working Directory inside the container
-WORKDIR /src
+  # Set the Current Working Directory inside the container
+  WORKDIR /src
 
-# We want to populate the module cache based on the go.{mod,sum} files.
-COPY go.mod .
-COPY go.sum .
+  # We want to populate the module cache based on the go.{mod,sum} files.
+  COPY src/go.mod .
+  COPY src/go.sum .
+  COPY src/Makefile .
 
-RUN go mod download
+  # Print copied files
+  RUN pwd && find .
 
-RUN mkdir -p /src/cmd/api
-COPY . .
+  RUN make dep
 
-# Build the Go app
-# RUN find .
-RUN go build -o ./out/app ./cmd/api/main.go
+  RUN mkdir -p /src/cmd/api
+  COPY src/ .
 
-FROM build_base as docs
-RUN go get -u github.com/swaggo/swag/cmd/swag
-RUN swag init --dir cmd/api --parseDependency --output docs
+  # Print copied files
+  RUN pwd && find .
 
+  # Build
+  RUN make build
 
-# Start fresh from a smaller image
-FROM alpine:3.12 as API_SERVER
-RUN apk add ca-certificates
+  # Print copied files
+  RUN pwd && find .
 
-WORKDIR /app
+# ==== docs - Documentation build
+FROM build as docs
 
-COPY --from=build_base /src/out/app /app/restapi
-COPY --from=build_base /src/data /app/data
+  # Print copied files
+  RUN pwd && find .
 
-RUN chmod +x restapi
-
-# This container exposes port 8080 to the outside world
-EXPOSE 3000
-
-# Run the binary program produced by `go install`
-ENTRYPOINT ./restapi
+  WORKDIR /src
+  RUN make docs
+  COPY /src/docs /docs
 
 
-FROM scratch AS export-stage
-COPY --from=docs /src/docs /
+# ==== app - Build app into alpine
+FROM alpine:3.12 as app
+  RUN apk add ca-certificates
+
+  WORKDIR /app
+
+  # Print copied files
+  RUN pwd && find .
+
+  COPY --from=build /src/bin/restapi /app/restapi
+  COPY --from=build /src/data /app/data
+  COPY --from=docs /src/docs /app/data
+
+  RUN chmod +x restapi
+
+  # This container exposes port 8080 to the outside world
+  EXPOSE 8080
+
+  # Run the binary program produced by `go install`
+  ENTRYPOINT ./restapi
