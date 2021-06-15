@@ -21,6 +21,7 @@ jobs:
       new_tag: ${{ steps.get_tag_name.outputs.new_tag }}
 
   pushit:
+    needs: tag
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
     permissions:
