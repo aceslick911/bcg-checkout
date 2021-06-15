@@ -11,7 +11,7 @@ test: build # DOCKER_BUILDKIT=0
 	docker run --rm bcg-api make test-coverage
 
 docs: # REQUIRES BUILDKIT
-	docker build --target docs-output --output type=local,dest=src/docs -t bcg-docs .
+	docker build --target docs-output --output type=local,dest=src -t bcg-docs .
 
 
 app: build # DOCKER_BUILDKIT=0 
