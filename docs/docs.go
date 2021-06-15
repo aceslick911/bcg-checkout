@@ -18,20 +18,91 @@ var doc = `{
     "info": {
         "description": "{{.Description}}",
         "title": "{{.Title}}",
-        "contact": {
-            "name": "Angelo Perera",
-            "url": "https://github.com/aceslick911/bcg-checkout",
-            "email": "angeloperera@gmail.com"
-        },
-        "license": {
-            "name": "MIT",
-            "url": "https://github.com/aceslick911/bcg-checkout/"
-        },
+        "contact": {},
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/tasks": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "Get Tasks",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves tasks based on query",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Taskname",
+                        "name": "taskname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Firstname",
+                        "name": "firstname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Lastname",
+                        "name": "lastname",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/tasks.Task"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "get Task by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves task based on given ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Task ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/tasks.Task"
+                        }
+                    }
+                }
+            }
+        },
         "/api/users": {
             "get": {
                 "security": [
@@ -113,6 +184,32 @@ var doc = `{
         }
     },
     "definitions": {
+        "tasks.Task": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/users.User"
+                },
+                "user_id": {
+                    "type": "integer"
+                }
+            }
+        },
         "users.User": {
             "type": "object",
             "properties": {
@@ -132,7 +229,6 @@ var doc = `{
                     "type": "string"
                 },
                 "role": {
-                    "type": "object",
                     "$ref": "#/definitions/users.UserRole"
                 },
                 "updated_at": {
@@ -163,13 +259,6 @@ var doc = `{
                 }
             }
         }
-    },
-    "securityDefinitions": {
-        "ApiKeyAuth": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
-        }
     }
 }`
 
@@ -184,12 +273,12 @@ type swaggerInfo struct {
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
-	Version:     "1.0",
+	Version:     "",
 	Host:        "",
-	BasePath:    "/",
+	BasePath:    "",
 	Schemes:     []string{},
 	Title:       "",
-	Description: "API REST in Golang with Gin Framework",
+	Description: "",
 }
 
 type s struct{}

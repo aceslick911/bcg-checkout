@@ -13,13 +13,23 @@ COPY go.sum .
 
 RUN go mod download
 
+RUN mkdir -p /src/cmd/api
 COPY . .
 
 # Build the Go app
+# RUN find .
 RUN go build -o ./out/app ./cmd/api/main.go
 
+FROM build_base as docs
+RUN go get -u github.com/swaggo/swag/cmd/swag
+RUN swag init --dir cmd/api --parseDependency --output docs
+
+FROM scratch AS export-stage
+COPY --from=docs /src/docs /
+
+
 # Start fresh from a smaller image
-FROM alpine:3.12
+FROM alpine:3.12 as API_SERVER
 RUN apk add ca-certificates
 
 WORKDIR /app
