@@ -159,6 +159,16 @@ This can be structured as:
  - Reduce the problem to individual, trivially solvable problems
  - 
 
+## Architecture
+Use golang gin+swagger API template
+
+### Context Interaction Diagram
+![img](src/docs/Interactions.svg)
+
+### Execution sequence
+
+![img](src/docs/Executions.svg)
+
 
 # How to use
 
