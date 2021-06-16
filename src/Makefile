@@ -30,6 +30,8 @@ build:
 ## @go build -i -o build/main $(PKG)
 	go build -o bin/restapi cmd/api/main.go
 
+ci: docs build
+
 run:
 	go run cmd/api/main.go
 

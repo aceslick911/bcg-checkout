@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/db"
 	models "github.com/aceslick911/bcg-checkout/internal/pkg/models/discounts"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
@@ -11,8 +12,14 @@ import (
 
 var discountTest models.Discount
 
+func SetupDiscounts() {
+	config.Setup("./config.yml")
+	db.SetupDB()
+	db.GetDB().Exec("DELETE FROM discounts")
+}
+
 func TestAddDiscount(t *testing.T) {
-	Setup()
+	SetupDiscounts()
 
 	fmt.Printf("%+v\n", sampleData)
 	discount := sampleData.Discounts[0]

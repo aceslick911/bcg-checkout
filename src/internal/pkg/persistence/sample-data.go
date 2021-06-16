@@ -92,7 +92,7 @@ func SampleDatabase() SampleDatabaseType {
 
 	var discounts = func() []discounts.Discount {
 		var Output = make([]discounts.Discount, len(Products))
-		copier.Copy(Products, &Output)
+		copier.Copy(Discounts, &Output)
 		return Output
 	}
 

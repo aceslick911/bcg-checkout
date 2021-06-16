@@ -12,15 +12,14 @@ import (
 
 var userTest models.User
 
-func Setup() {
+func SetupUsers() {
 	config.Setup("./config.yml")
 	db.SetupDB()
 	db.GetDB().Exec("DELETE FROM users")
-	db.GetDB().Exec("DELETE FROM products")
 }
 
 func TestAddUser(t *testing.T) {
-	Setup()
+	SetupUsers()
 	user := models.User{
 		Firstname: "Angelo",
 		Lastname:  "Perera",

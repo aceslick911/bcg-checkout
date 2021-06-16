@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/db"
 	models "github.com/aceslick911/bcg-checkout/internal/pkg/models/products"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
@@ -13,8 +14,14 @@ var productTest models.Product
 
 var sampleData = persistence.SampleDatabase()
 
+func SetupProducts() {
+	config.Setup("./config.yml")
+	db.SetupDB()
+	db.GetDB().Exec("DELETE FROM products")
+}
+
 func TestAddProduct(t *testing.T) {
-	Setup()
+	SetupProducts()
 	// fmt.Printf("%+v\n", sampleData)
 	product := sampleData.Products[0]
 	s := persistence.GetProductRepository()
