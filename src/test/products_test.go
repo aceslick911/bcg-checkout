@@ -11,16 +11,12 @@ import (
 
 var productTest models.Product
 
+var sampleData = persistence.SampleDatabase()
+
 func TestAddProduct(t *testing.T) {
 	Setup()
-	productList := [...]models.Product{
-		{SKU: "120P90", Name: "Google Home", Price: 49.99, Inventory_Qty: 10},
-		{SKU: "43N23P", Name: "MacBook Pro", Price: 5399.99, Inventory_Qty: 5},
-		{SKU: "A304SD", Name: "Alexa Speaker", Price: 109.5, Inventory_Qty: 10},
-		{SKU: "234234", Name: "Raspberry Pi B", Price: 30, Inventory_Qty: 2},
-	}
-
-	product := productList[0]
+	// fmt.Printf("%+v\n", sampleData)
+	product := sampleData.Products[0]
 	s := persistence.GetProductRepository()
 	if err := s.Add(&product); err != nil {
 		t.Fatalf("Expected no error, got %v", err)

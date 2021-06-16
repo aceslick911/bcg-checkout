@@ -1,8 +1,9 @@
 package users
 
 import (
-	"github.com/aceslick911/bcg-checkout/internal/pkg/models"
 	"time"
+
+	"github.com/aceslick911/bcg-checkout/internal/pkg/models"
 )
 
 type User struct {

@@ -1,0 +1,3 @@
+-- SQLite
+INSERT INTO users (id, created_at, updated_at, username, firstname, lastname, hash)
+VALUES (0, '2021-06-01', '2021-06-02', 'aceslick911', 'Angelo', 'Perera' ,'123');

@@ -12,6 +12,7 @@ require (
 	github.com/go-openapi/swag v0.19.15 // indirect
 	github.com/go-swagger/go-swagger v0.25.0 // indirect
 	github.com/gofrs/uuid v3.3.0+incompatible // indirect
+	github.com/jinzhu/copier v0.3.2 // indirect
 	github.com/jinzhu/gorm v1.9.15
 	github.com/kr/pretty v0.2.1 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
@@ -26,6 +27,6 @@ require (
 	go.mongodb.org/mongo-driver v1.4.0 // indirect
 	golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de
 	golang.org/x/net v0.0.0-20210614182718-04defd469f4e // indirect
-	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
+	golang.org/x/sys v0.0.0-20210616045830-e2b7044e8c71 // indirect
 	golang.org/x/tools v0.1.3 // indirect
 )
