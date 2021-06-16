@@ -353,23 +353,23 @@ var doc = `{
         "discounts.Discount": {
             "type": "object",
             "properties": {
-                "Condition_items": {
+                "condition_items": {
                     "type": "string"
-                },
-                "Discount_item": {
-                    "type": "string"
-                },
-                "Discount_type": {
-                    "type": "string"
-                },
-                "Discount_value": {
-                    "type": "number"
                 },
                 "condition_qty": {
                     "type": "integer"
                 },
                 "created_at": {
                     "type": "string"
+                },
+                "discount_item": {
+                    "type": "string"
+                },
+                "discount_type": {
+                    "type": "string"
+                },
+                "discount_value": {
+                    "type": "number"
                 },
                 "id": {
                     "type": "integer"

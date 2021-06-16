@@ -12,8 +12,6 @@ type Product struct {
 	Name          string  `gorm:"column:name;not null;" json:"name" form:"name"`
 	Price         float64 `gorm:"column:price;not null;" json:"price" form:"price"`
 	Inventory_Qty uint64  `gorm:"column:inventory_qty;not null;" json:"inventory_qty" form:"inventory_qty"`
-	// UserID uint64     `gorm:"column:user_id;unique_index:user_id;not null;" json:"user_id" form:"user_id"`
-	// User   users.User `json:"user"`
 }
 
 func (m *Product) BeforeCreate() error {
