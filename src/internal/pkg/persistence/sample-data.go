@@ -5,6 +5,8 @@ import (
 	"time"
 
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models"
+	basket_items "github.com/aceslick911/bcg-checkout/internal/pkg/models/basket_items"
+	baskets "github.com/aceslick911/bcg-checkout/internal/pkg/models/baskets"
 	discounts "github.com/aceslick911/bcg-checkout/internal/pkg/models/discounts"
 	products "github.com/aceslick911/bcg-checkout/internal/pkg/models/products"
 	users "github.com/aceslick911/bcg-checkout/internal/pkg/models/users"
@@ -76,6 +78,52 @@ var (
 			Discount_value: 10,
 		},
 	}
+	Baskets = [...]baskets.Basket{
+
+		{Model: newModel(),
+			Condition_qty:  1,
+			Condition_item: "43N23P",
+			Discount_type:  "FREE_ITEM_QTY",
+			Discount_item:  "234234",
+			Discount_value: 1,
+		},
+		{Model: newModel(),
+			Condition_qty:  3,
+			Condition_item: "120P90",
+			Discount_type:  "FREE_ITEM_QTY",
+			Discount_item:  "120P90",
+			Discount_value: 1,
+		},
+		{Model: newModel(),
+			Condition_qty:  3,
+			Condition_item: "A304SD",
+			Discount_type:  "ITEM_DISCOUNT_PERCENTAGE",
+			Discount_value: 10,
+		},
+	}
+	Basket_Items = [...]basket_items.Basket_Item{
+
+		{Model: newModel(),
+			Condition_qty:  1,
+			Condition_item: "43N23P",
+			Discount_type:  "FREE_ITEM_QTY",
+			Discount_item:  "234234",
+			Discount_value: 1,
+		},
+		{Model: newModel(),
+			Condition_qty:  3,
+			Condition_item: "120P90",
+			Discount_type:  "FREE_ITEM_QTY",
+			Discount_item:  "120P90",
+			Discount_value: 1,
+		},
+		{Model: newModel(),
+			Condition_qty:  3,
+			Condition_item: "A304SD",
+			Discount_type:  "ITEM_DISCOUNT_PERCENTAGE",
+			Discount_value: 10,
+		},
+	}
 )
 
 type SampleDatabaseType struct {
@@ -97,9 +145,23 @@ func SampleDatabase() SampleDatabaseType {
 		return Output
 	}
 
+	var baskets = func() []baskets.Basket {
+		var Output = make([]baskets.Basket, len(Baskets))
+		copier.Copy(Baskets, &Output)
+		return Output
+	}
+
+	var basket_items = func() []basket_items.Basket_Item {
+		var Output = make([]basket_items.Basket_Item, len(Basket_Items))
+		copier.Copy(Basket_Items, &Output)
+		return Output
+	}
+
 	return SampleDatabaseType{
-		Products:  products(),
-		Discounts: discounts(),
+		Products:     products(),
+		Discounts:    discounts(),
+		Baskets:      baskets(),
+		Basket_Items: basket_items(),
 	}
 }
 

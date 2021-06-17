@@ -5,6 +5,8 @@ import (
 	"time"
 
 	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
+	"github.com/aceslick911/bcg-checkout/internal/pkg/models/basket_items"
+	"github.com/aceslick911/bcg-checkout/internal/pkg/models/baskets"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models/discounts"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models/products"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models/tasks"
@@ -71,6 +73,8 @@ func migration() {
 	DB.AutoMigrate(&tasks.Task{})
 	DB.AutoMigrate(&products.Product{})
 	DB.AutoMigrate(&discounts.Discount{})
+	DB.AutoMigrate(&baskets.Basket{})
+	DB.AutoMigrate(&basket_items.Basket_Item{})
 }
 
 func GetDB() *gorm.DB {
