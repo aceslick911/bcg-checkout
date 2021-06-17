@@ -81,54 +81,31 @@ var (
 	Baskets = [...]baskets.Basket{
 
 		{Model: newModel(),
-			Condition_qty:  1,
-			Condition_item: "43N23P",
-			Discount_type:  "FREE_ITEM_QTY",
-			Discount_item:  "234234",
-			Discount_value: 1,
-		},
-		{Model: newModel(),
-			Condition_qty:  3,
-			Condition_item: "120P90",
-			Discount_type:  "FREE_ITEM_QTY",
-			Discount_item:  "120P90",
-			Discount_value: 1,
-		},
-		{Model: newModel(),
-			Condition_qty:  3,
-			Condition_item: "A304SD",
-			Discount_type:  "ITEM_DISCOUNT_PERCENTAGE",
-			Discount_value: 10,
+			User:      0,
+			Total:     100,
+			Discounts: 10,
 		},
 	}
 	Basket_Items = [...]basket_items.Basket_Item{
 
 		{Model: newModel(),
-			Condition_qty:  1,
-			Condition_item: "43N23P",
-			Discount_type:  "FREE_ITEM_QTY",
-			Discount_item:  "234234",
-			Discount_value: 1,
-		},
-		{Model: newModel(),
-			Condition_qty:  3,
-			Condition_item: "120P90",
-			Discount_type:  "FREE_ITEM_QTY",
-			Discount_item:  "120P90",
-			Discount_value: 1,
-		},
-		{Model: newModel(),
-			Condition_qty:  3,
-			Condition_item: "A304SD",
-			Discount_type:  "ITEM_DISCOUNT_PERCENTAGE",
-			Discount_value: 10,
+			Basket_ID:   0,
+			Discount_ID: 0,
+
+			Item_Type:   "FREE_ITEM_QTY",
+			Product_SKU: "120P90",
+
+			Cost:           100,
+			After_Discount: 0,
 		},
 	}
 )
 
 type SampleDatabaseType struct {
-	Products  []products.Product
-	Discounts []discounts.Discount
+	Products     []products.Product
+	Discounts    []discounts.Discount
+	Baskets      []baskets.Basket
+	Basket_Items []basket_items.Basket_Item
 }
 
 func SampleDatabase() SampleDatabaseType {
