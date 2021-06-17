@@ -12,4 +12,4 @@ jq -r "[.[] | \
  }\
 ]" ./discount_rules.json > discounts.json
 
- sqlitebiter -o database.db file --format json ./products.json ./discounts.json
+ sqlitebiter -o database.db file --format json ./products.json ./discounts.json .basket_items.json ./baskets.json
