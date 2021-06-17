@@ -34,9 +34,11 @@ func GetDiscountById(c *gin.Context) {
 // @Summary Retrieves discounts based on query
 // @Description Get Discounts
 // @Produce json
-// @Param discountname query string false "Discountname"
-// @Param firstname query string false "Firstname"
-// @Param lastname query string false "Lastname"
+// @Param condition_qty query string false "Condition_qty"
+// @Param condition_item query string false "Condition_item"
+// @Param discount_type query string false "Discount_type"
+// @Param discount_item query string false "Discount_item"
+// @Param discount_value query string false "Discount_value"
 // @Success 200 {array} []discounts.Discount
 // @Router /api/discounts [get]
 // @Security Authorization Token

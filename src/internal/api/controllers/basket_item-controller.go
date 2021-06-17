@@ -34,9 +34,13 @@ func GetBasket_ItemById(c *gin.Context) {
 // @Summary Retrieves basket_items based on query
 // @Description Get Basket_Items
 // @Produce json
-// @Param basket_itemname query string false "Basket_Itemname"
-// @Param firstname query string false "Firstname"
-// @Param lastname query string false "Lastname"
+// @Param basket_id query string false "Basket_ID"
+// @Param discount_id query string false "Discount_ID"
+// @Param item_type query string false "Item_Type"
+// @Param product_sku query string false "Product_SKU"
+// @Param cost query string false "Cost"
+// @Param after_discount query string false "After_Discount"
+
 // @Success 200 {array} []basket_items.Basket_Item
 // @Router /api/basket_items [get]
 // @Security Authorization Token

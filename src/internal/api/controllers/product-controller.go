@@ -34,9 +34,10 @@ func GetProductById(c *gin.Context) {
 // @Summary Retrieves products based on query
 // @Description Get Products
 // @Produce json
-// @Param productname query string false "Productname"
-// @Param firstname query string false "Firstname"
-// @Param lastname query string false "Lastname"
+// @Param sku query string false "SKU"
+// @Param name query string false "Name"
+// @Param price query string false "Price"
+// @Param inventory_qty query string false "Inventory_Qty"
 // @Success 200 {array} []products.Product
 // @Router /api/products [get]
 // @Security Authorization Token
