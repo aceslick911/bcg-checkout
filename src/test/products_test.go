@@ -40,7 +40,6 @@ func TestGetAllProducts(t *testing.T) {
 
 func TestGetProductById(t *testing.T) {
 	db.SetupDB()
-	db.SetupDB()
 	s := persistence.GetProductRepository()
 	if _, err := s.Get(fmt.Sprint(productTest.ID)); err != nil {
 		t.Fatalf("Expected no error, got %v", err)

@@ -26,7 +26,10 @@ get-docs:
 docs: get-docs
 	swag init --dir cmd/api --parseDependency --output docs
 
-build:
+dbup:
+	cd data && 	./up.sh
+
+build: dbup
 ## @go build -i -o build/main $(PKG)
 	go build -o bin/restapi cmd/api/main.go
 

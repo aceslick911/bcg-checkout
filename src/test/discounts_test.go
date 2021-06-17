@@ -39,7 +39,6 @@ func TestGetAllDiscounts(t *testing.T) {
 
 func TestGetDiscountById(t *testing.T) {
 	db.SetupDB()
-	db.SetupDB()
 	s := persistence.GetDiscountRepository()
 	if _, err := s.Get(fmt.Sprint(discountTest.ID)); err != nil {
 		t.Fatalf("Expected no error, got %v", err)
