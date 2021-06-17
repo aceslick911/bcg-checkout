@@ -3,7 +3,7 @@ FROM golang:1.15.3-alpine AS build
 
   ENV CGO_ENABLED=1
   ENV GO111MODULE=on
-  RUN apk add --no-cache git git gcc g++ make sqlite jq
+  RUN apk add --no-cache git git gcc g++ make sqlite jq sqlitebiter
 
   # Set the Current Working Directory inside the container
   WORKDIR /src
