@@ -32,6 +32,164 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/api/basket_items": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "Get Basket_Items",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves basket_items based on query",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Basket_Itemname",
+                        "name": "basket_itemname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Firstname",
+                        "name": "firstname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Lastname",
+                        "name": "lastname",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/basket_items.Basket_Item"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/basket_items/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "get Basket_Item by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves basket_item based on given ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Basket_Item ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/basket_items.Basket_Item"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/baskets": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "Get Baskets",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves baskets based on query",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Basketname",
+                        "name": "basketname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Firstname",
+                        "name": "firstname",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Lastname",
+                        "name": "lastname",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/baskets.Basket"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/baskets/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Authorization Token": []
+                    }
+                ],
+                "description": "get Basket by ID",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Retrieves basket based on given ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Basket ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/baskets.Basket"
+                        }
+                    }
+                }
+            }
+        },
         "/api/discounts": {
             "get": {
                 "security": [
@@ -350,6 +508,61 @@ var doc = `{
         }
     },
     "definitions": {
+        "basket_items.Basket_Item": {
+            "type": "object",
+            "properties": {
+                "after_discount": {
+                    "type": "number"
+                },
+                "basket_id": {
+                    "type": "integer"
+                },
+                "cost": {
+                    "type": "number"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "discount_id": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "item_type": {
+                    "type": "string"
+                },
+                "product_sku": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "baskets.Basket": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "discounts": {
+                    "type": "number"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "number"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "integer"
+                }
+            }
+        },
         "discounts.Discount": {
             "type": "object",
             "properties": {
