@@ -1,6 +1,7 @@
 package persistence
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/aceslick911/bcg-checkout/internal/pkg/models"
@@ -35,7 +36,7 @@ var (
 		{
 			Model: newModel(),
 			SKU:   "A304SD",
-			Name:  "Alexa Speaker",
+			Name:  "Alexa SpeakerFFFFFFFF",
 			Price: 109.5, Inventory_Qty: 10},
 		{
 			Model: newModel(),
@@ -100,4 +101,19 @@ func SampleDatabase() SampleDatabaseType {
 		Products:  products(),
 		Discounts: discounts(),
 	}
+}
+
+var sampleData = SampleDatabase()
+
+func HydrateDatabase() {
+	products := sampleData.Products
+	s := GetProductRepository()
+
+	for _, prod := range products {
+		if err := s.Add(&prod); err != nil {
+			fmt.Println("ERR", err)
+		}
+	}
+
+	//productTest = product
 }

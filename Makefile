@@ -18,4 +18,4 @@ app: build # DOCKER_BUILDKIT=0
 	docker build --target app -t bcg-app . 
 
 run: app # DOCKER_BUILDKIT=0 
-docker run --rm -p 3000:3000 bcg-app
+	docker run --rm -p 3000:3000 bcg-app

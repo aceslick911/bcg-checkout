@@ -1,5 +1,8 @@
 [
   {
+    "ID": 0,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
     "condition_qty": 1,
     "condition_item": "43N23P",
     "discount_type": "FREE_ITEM_QTY",
@@ -7,6 +10,9 @@
     "discount_value": 1
   },
   {
+    "ID": 1,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
     "condition_qty": 3,
     "condition_item": "120P90",
     "discount_type": "FREE_ITEM_QTY",
@@ -14,6 +20,9 @@
     "discount_value": 1
   },
   {
+    "ID": 2,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
     "condition_qty": 3,
     "condition_item": "A304SD",
     "discount_type": "ITEM_DISCOUNT_PERCENTAGE",

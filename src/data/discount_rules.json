@@ -1,5 +1,8 @@
 [
   {
+    "ID": 0,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
     "condition": {
       "qty": 1,
       "item": "43N23P"
@@ -13,6 +16,9 @@
     }
   },
   {
+    "ID": 1,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
     "condition": {
       "qty": 3,
       "item": "120P90"
@@ -26,6 +32,9 @@
     }
   },
   {
+    "ID": 2,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
     "condition": {
       "qty": 3,
       "item": "A304SD"

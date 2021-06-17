@@ -1,6 +1,38 @@
 [
-  { "SKU":"120P90", "Name":"Google Home",    "Price":49.99,   "Inventory_Qty":10 },
-  { "SKU":"43N23P", "Name":"MacBook Pro",    "Price":5399.99, "Inventory_Qty":5 },
-  { "SKU":"A304SD", "Name":"Alexa Speaker",  "Price":109.5,   "Inventory_Qty":10 },
-  { "SKU":"234234", "Name":"Raspberry Pi B", "Price":30,      "Inventory_Qty":2 }
+  {
+    "ID": 0,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
+    "SKU": "120P90",
+    "Name": "Google Home",
+    "Price": 49.99,
+    "Inventory_Qty": 10
+  },
+  {
+    "ID": 1,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
+    "SKU": "43N23P",
+    "Name": "MacBook Pro",
+    "Price": 5399.99,
+    "Inventory_Qty": 5
+  },
+  {
+    "ID": 2,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
+    "SKU": "A304SD",
+    "Name": "Alexa Speaker",
+    "Price": 109.5,
+    "Inventory_Qty": 10
+  },
+  {
+    "ID": 3,
+    "created_at": "2021-06-01",
+    "updated_at": "2021-06-02",
+    "SKU": "234234",
+    "Name": "Raspberry Pi B",
+    "Price": 30,
+    "Inventory_Qty": 2
+  }
 ]

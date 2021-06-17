@@ -6,12 +6,14 @@ import (
 	"github.com/aceslick911/bcg-checkout/internal/api/router"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/config"
 	"github.com/aceslick911/bcg-checkout/internal/pkg/db"
+	"github.com/aceslick911/bcg-checkout/internal/pkg/persistence"
 	"github.com/gin-gonic/gin"
 )
 
 func setConfiguration(configPath string) {
 	config.Setup(configPath)
 	db.SetupDB()
+	persistence.HydrateDatabase()
 	gin.SetMode(config.GetConfig().Server.Mode)
 }
 
